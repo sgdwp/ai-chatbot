@@ -64,10 +64,11 @@ export function Chat({
     },
   });
 
-  const { data: votes } = useSWR<Array<Vote>>(
-    `/api/vote?chatId=${id}`,
-    fetcher,
-  );
+  const votes: any = undefined
+  // const { data: votes } = useSWR<Array<Vote>>(
+  //   `/api/vote?chatId=${id}`,
+  //   fetcher,
+  // );
 
   const [messagesContainerRef, messagesEndRef] =
     useScrollToBottom<HTMLDivElement>();
@@ -94,7 +95,7 @@ export function Chat({
               isLoading={isLoading && messages.length - 1 === index}
               vote={
                 votes
-                  ? votes.find((vote) => vote.messageId === message.id)
+                  ? votes.find((vote: any) => vote.messageId === message.id)
                   : undefined
               }
             />

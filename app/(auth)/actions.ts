@@ -43,12 +43,12 @@ export const login = async (
 
 export interface RegisterActionState {
   status:
-    | 'idle'
-    | 'in_progress'
-    | 'success'
-    | 'failed'
-    | 'user_exists'
-    | 'invalid_data';
+  | 'idle'
+  | 'in_progress'
+  | 'success'
+  | 'failed'
+  | 'user_exists'
+  | 'invalid_data';
 }
 
 export const register = async (
@@ -75,6 +75,7 @@ export const register = async (
 
     return { status: 'success' };
   } catch (error) {
+    console.log("error", error)
     if (error instanceof z.ZodError) {
       return { status: 'invalid_data' };
     }
